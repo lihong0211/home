@@ -173,7 +173,7 @@
 
 				// 建筑物名称列表
 				const buildingNames = [
-					'AI', 'English', 'Docs',  'Profile',  'Github', 'Redis',  
+					'AI', 'En', 'Docs',  'Profile',  'Github',
 				];
 
 				const NUM_CENTER_LABELS = buildingNames.length; // 标签数量等于名称数量
@@ -322,61 +322,16 @@
 				controls.autoRotate = true;
 				controls.autoRotateSpeed = .1;
 				controls.update();
-
 				window.addEventListener( 'resize', resize );
 
 			}
 
 			function handleBuildingClick( buildingInfo, labelElement ) {
-
-				// 移除其他标签的选中状态
-				document.querySelectorAll( '.label' ).forEach( label => {
-					label.classList.remove( 'selected' );
-				} );
-
-				// 添加选中状态
-				labelElement.classList.add( 'selected' );
-
-				// 显示建筑物信息
-				console.log( 'Building clicked:', buildingInfo );
-				
-				// 创建信息提示
-				const existingInfo = document.getElementById( 'building-info' );
-				if ( existingInfo ) {
-					existingInfo.remove();
+				if (buildingInfo.name === 'Github') { 
+					window.location.href = 'https://github.com/lihong0211';
+				} else {
+					window.location.href = `https://doctor-dog.com/${buildingInfo.name.toLowerCase()}`;
 				}
-
-				const infoDiv = document.createElement( 'div' );
-				infoDiv.id = 'building-info';
-				infoDiv.style.position = 'absolute';
-				infoDiv.style.bottom = '20px';
-				infoDiv.style.left = '50%';
-				infoDiv.style.transform = 'translateX(-50%)';
-				infoDiv.style.background = 'rgba(0, 0, 0, 0.8)';
-				infoDiv.style.color = 'white';
-				infoDiv.style.padding = '15px 25px';
-				infoDiv.style.borderRadius = '10px';
-				infoDiv.style.fontFamily = 'sans-serif';
-				infoDiv.style.zIndex = '1000';
-				infoDiv.style.border = '2px solid #4CAF50';
-				infoDiv.innerHTML = `
-					<strong>${buildingInfo.name}</strong><br/>
-					Height: ${buildingInfo.height.toFixed(1)} units<br/>
-					Position: (${buildingInfo.position.x.toFixed(0)}, ${buildingInfo.position.z.toFixed(0)})<br/>
-					<small style="color: #aaa;">Click anywhere to close</small>
-				`;
-
-				document.body.appendChild( infoDiv );
-
-				// 点击任意位置关闭信息框
-				setTimeout( () => {
-					const closeInfo = () => {
-						infoDiv.remove();
-						document.removeEventListener( 'click', closeInfo );
-					};
-					document.addEventListener( 'click', closeInfo );
-				}, 100 );
-
 			}
 
 			function resize() {
