@@ -1,0 +1,21 @@
+{
+  "name": "lottie-3d-viewer",
+  "version": "1.0.0",
+  "description": "A 3D viewer for Lottie animations using Three.js",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "serve": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "three.js",
+    "lottie",
+    "3d",
+    "animation",
+    "webgl"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
