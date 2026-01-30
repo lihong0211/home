@@ -173,7 +173,7 @@
 
 				// 建筑物名称列表
 				const buildingNames = [
-					'AI', 'En', 'Docs',  'Profile',  'Github',
+					'AI', 'En', 'Blog',  'Github',
 				];
 
 				const NUM_CENTER_LABELS = buildingNames.length; // 标签数量等于名称数量
@@ -330,7 +330,7 @@
 				if (buildingInfo.name === 'Github') { 
 					window.location.href = 'https://github.com/lihong0211';
 				} else {
-					window.location.href = `https://doctor-dog.com/${buildingInfo.name.toLowerCase()}`;
+					window.location.href = `https://${buildingInfo.name.toLowerCase()}.doctor-dog.com`;
 				}
 			}
 
